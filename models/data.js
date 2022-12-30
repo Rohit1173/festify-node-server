@@ -21,6 +21,11 @@ const dataSchema = mongoose.Schema({
         type: String,
         required: true,
       },
+      verified:{
+        type: Boolean,
+        required: false,
+        default: false
+      }
 });
 
 module.exports = mongoose.model("Data", dataSchema);
