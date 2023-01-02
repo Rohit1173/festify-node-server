@@ -107,16 +107,19 @@ router.post("/signup", async (req, res) => {
 
 router.post("/register", (req,res)=>{
 try{
+    console.log(req.body)
     const e =req.body.eventId
     User.findOne({userName:req.body.userName},(err,user)=>{
-        console.log(req.body)
+        
         if(err){
             console.log(err)
             res.status(400).json({status:1,message:err});
         }
+        else if(!user){
+            res.status(400).json({status:0,message:"User is Null"})
+        }
         else{
-      user.registeredEvents.push(e);
-      
+      user.registeredEvents.push(e);          
       user.save((err)=>{
         if(err){
                console.log(err);
