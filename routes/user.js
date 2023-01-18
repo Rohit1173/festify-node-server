@@ -66,7 +66,7 @@ router.post("/login",async (req, res) => {
                const options = { expiresIn:maxAge };
                const token = jwt.sign(payload, secret, options);
                // Send response
-               res.status(400).json({status: 1, message: token});
+               res.status(200).json({status: 1, message: token});
         }
     } catch (error) {
         console.log(error);
@@ -101,7 +101,7 @@ router.post("/signup", async (req, res) => {
                const options = { expiresIn:maxAge };
                const token = jwt.sign(payload, secret, options);
                // Send response
-               res.status(400).json({status: 1, message: token});
+               res.status(200).json({status: 1, message: token});
                 
                 
              });
